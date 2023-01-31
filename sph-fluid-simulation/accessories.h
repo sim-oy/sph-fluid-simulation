@@ -7,7 +7,7 @@
 typedef struct {
     cl_float2* pos;
     cl_float2* vel;
-    float* ran;
+    float* mss;
 } particle;
 
 void DrawParticles(particle particles, uint8_t* windowBuffer, int n, int window_width, int window_height);

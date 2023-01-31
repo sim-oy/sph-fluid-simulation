@@ -26,7 +26,7 @@ void GenerateParticles(particle particles, int n) {
         particles.pos[i].y = Randf() * 0.2;
         particles.vel[i].x = 0;
         particles.vel[i].y = 0;
-        particles.ran[i] = 1.0f / 100.0f;
+        particles.mss[i] = 1.0f / 100.0f;
     }
 }
 

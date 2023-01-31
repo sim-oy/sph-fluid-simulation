@@ -12,7 +12,7 @@
 int main(void) {
     printf("start\n");
 
-    const int n2 = 10000;
+    const int n2 = 10;
     const int window_width = 500;
     const int window_height = 500;
     const int rounding = 256;
@@ -22,7 +22,7 @@ int main(void) {
     particle particles = {
         .pos = (cl_float2*)malloc(n * sizeof(cl_float2)),
         .vel = (cl_float2*)malloc(n * sizeof(cl_float2)),
-        .ran = (float*)malloc(n * sizeof(float))
+        .mss = (float*)malloc(n * sizeof(float))
     };
     GenerateParticles(particles, n);
 
@@ -84,7 +84,7 @@ int main(void) {
     free(windowBuffer);
     free(particles.pos);
     free(particles.vel);
-    free(particles.ran);
+    free(particles.mss);
 
     printf("end\n");
     return 0;

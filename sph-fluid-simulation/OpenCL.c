@@ -78,7 +78,7 @@ void CLInit(particle* particles, int arr_len, float G, float smthing) {
 
 	clEnqueueWriteBuffer(queue, pos_buf, CL_FALSE, 0, n * 2 * sizeof(cl_float), particles->pos, 0, NULL, NULL);
 	clEnqueueWriteBuffer(queue, pos_buf, CL_FALSE, n * 2 * sizeof(cl_float), n * 2 * sizeof(cl_float), particles->vel, 0, NULL, NULL);
-	clEnqueueWriteBuffer(queue, pos_buf, CL_FALSE, n * 2 * sizeof(cl_float) * 2, n * sizeof(cl_float), particles->ran, 0, NULL, NULL);
+	clEnqueueWriteBuffer(queue, pos_buf, CL_FALSE, n * 2 * sizeof(cl_float) * 2, n * sizeof(cl_float), particles->mss, 0, NULL, NULL);
 
 	clReleaseProgram(program);
 	clReleaseContext(context);
@@ -106,7 +106,7 @@ void CLRun(particle* particles, int arr_len, int round_size) {
 	CheckErr(err, "Error reading buffer1");
 	err = clEnqueueReadBuffer(queue, pos_buf, CL_FALSE, n * 2 * sizeof(cl_float), n * 2 * sizeof(cl_float), particles->vel, 0, NULL, NULL);
 	CheckErr(err, "Error reading buffer2");
-	err = clEnqueueReadBuffer(queue, pos_buf, CL_FALSE, n * 2 * sizeof(cl_float) * 2, n * sizeof(cl_float), particles->ran, 0, NULL, NULL);
+	err = clEnqueueReadBuffer(queue, pos_buf, CL_FALSE, n * 2 * sizeof(cl_float) * 2, n * sizeof(cl_float), particles->mss, 0, NULL, NULL);
 	CheckErr(err, "Error reading buffer3");
 
 	err = clFinish(queue);
